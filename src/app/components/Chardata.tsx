@@ -28,6 +28,10 @@ class App extends React.Component<Props, State> {
                         }
                         return <Text>{key}</Text>
                     })
+                }
+                {this.props.char["eigenschaften"][0]["eigenschaft"].map(propertie=>{
+                    return <Text>{propertie["$"].name+": "+propertie["$"].value}</Text>
+                })
 
                 }
             </View>
