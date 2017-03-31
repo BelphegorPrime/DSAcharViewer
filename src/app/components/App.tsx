@@ -30,11 +30,10 @@ class App extends React.Component<Props, State> {
                             selectedValue={this.props.chosenCharIndex}
                             onValueChange={(charIndex) => this.props.actions.setPicker(charIndex)}>
                             {this.props.json.map((charjson, index) =>{
-                                    return <Picker.Item label={charjson["$"].name}  value={index} />
+                                    return <Picker.Item key={Math.random()} label={charjson["$"].name}  value={index} />
                                 })
                             }
                         </Picker>
-
                     </View>
                     <Chardata char={this.props.chosenChar} actions={this.props.actions}/>
                 </View>

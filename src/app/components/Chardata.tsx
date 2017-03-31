@@ -22,15 +22,15 @@ class App extends React.Component<Props, State> {
                 <Text>{this.props.char["$"].name}</Text>
                 {Object.keys(this.props.char["basis"][0]).map(key=>{
                         if(key === "geschlecht"){
-                            return <Text>{"Geschlecht: "+this.props.char["basis"][0][key][0]["$"].name}</Text>
+                            return <Text key={Math.random()}>{"Geschlecht: "+this.props.char["basis"][0][key][0]["$"].name}</Text>
                         }else if(key === "rasse"){
-                            return <Text>{"Rasse: "+this.props.char["basis"][0][key][0]["$"].string}</Text>
+                            return <Text key={Math.random()}>{"Rasse: "+this.props.char["basis"][0][key][0]["$"].string}</Text>
                         }
-                        return <Text>{key}</Text>
+                        return <Text key={Math.random()}>{key}</Text>
                     })
                 }
                 {this.props.char["eigenschaften"][0]["eigenschaft"].map(propertie=>{
-                    return <Text>{propertie["$"].name+": "+propertie["$"].value}</Text>
+                    return <Text key={Math.random()}>{propertie["$"].name+": "+propertie["$"].value}</Text>
                 })
 
                 }
