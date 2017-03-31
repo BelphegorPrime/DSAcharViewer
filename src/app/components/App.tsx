@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, ViewStyle} from 'react-native';
+import { StyleSheet, Text, View, ViewStyle, Picker, StatusBar} from 'react-native';
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 
 import * as allActions from '../actions/index';
+import Chardata from './Chardata'
 
 interface Props {
 
@@ -21,10 +22,21 @@ class App extends React.Component<Props, State> {
 
     render() {
         if(this.props.json[0] !== undefined){
-            console.log(this.props.json[0]["$"].name)
             return (
                 <View style={styles.container}>
-                    <Text>{this.props.json[0]["$"].name}</Text>
+                    <View  style={styles.pickerContainer}>
+                        <Picker
+                            style={styles.picker}
+                            selectedValue={this.props.chosenCharIndex}
+                            onValueChange={(charIndex) => this.props.actions.setPicker(charIndex)}>
+                            {this.props.json.map((charjson, index) =>{
+                                    return <Picker.Item label={charjson["$"].name}  value={index} />
+                                })
+                            }
+                        </Picker>
+
+                    </View>
+                    <Chardata char={this.props.chosenChar} actions={this.props.actions}/>
                 </View>
             );
         }else {
@@ -43,13 +55,23 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
+        marginTop: 20,
+    } as ViewStyle,
+    picker: {
+        height: 50,
+        flex:1,
+    } as ViewStyle,
+    pickerContainer:{
+        flexDirection:'row',
     } as ViewStyle,
 });
 
 export default connect((state) => ({
         json: state.mobile.json,
+        chosenChar: state.mobile.chosenChar,
+        chosenCharIndex: state.mobile.chosenCharIndex,
     }),
     (dispatch) => ({
         actions: bindActionCreators(allActions, dispatch)
