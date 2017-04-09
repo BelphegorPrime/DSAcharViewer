@@ -14,8 +14,7 @@ class App extends Component {
 
     render() {
         if(this.props.json[0] !== undefined){
-            return (
-                <View style={styles.container}>
+            return <View style={styles.container}>
                     <View  style={styles.pickerContainer}>
                         <Picker
                             style={styles.picker}
@@ -29,13 +28,10 @@ class App extends Component {
                     </View>
                     <Chardata char={this.props.chosenChar} actions={this.props.actions}/>
                 </View>
-            );
         }else {
             return(
-                <View style={styles.container}>
-                    <Text>Open up App.tsx to start workingn your app!</Text>
-                    <Text>Changes you make will automatically reload.</Text>
-                    <Text>Shake your phone to open the developer menu.</Text>
+                <View style={styles.container_loading}>
+                    <Text>App is loading</Text>
                 </View>
             )
         }
@@ -48,6 +44,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
+        marginTop: 20,
+    },
+    container_loading: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
         marginTop: 20,
     },
     picker: {
