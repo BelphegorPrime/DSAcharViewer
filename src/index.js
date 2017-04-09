@@ -1,5 +1,3 @@
-// src/index.ts
-
 import React, { Component } from 'react';
 import {
     StyleSheet,
@@ -7,15 +5,7 @@ import {
     View, ViewStyle, TextStyle
 } from 'react-native';
 
-interface Props {
-
-}
-
-interface State {
-
-}
-
-export default class App extends Component<Props, State> {
+export default class App extends Component {
     render() {
         return (
             <View style={styles.container}>
@@ -33,11 +23,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#F5FCFF',
-    } as ViewStyle,
+    },
 
     text: {
         fontSize: 20,
         textAlign: 'center',
         margin: 10,
-    } as TextStyle,
+    },
 });

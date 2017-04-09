@@ -1,17 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View, ViewStyle, Picker, StatusBar} from 'react-native';
-import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 
-interface Props {
-
-}
-
-interface State {
-
-}
-
-class App extends React.Component<Props, State> {
+class App extends Component {
     constructor(props){
         super(props)
     }
@@ -45,7 +36,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
-    } as ViewStyle,
+    },
 });
 
 export default connect((state) => ({

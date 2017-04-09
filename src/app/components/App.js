@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View, ViewStyle, Picker, StatusBar} from 'react-native';
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
@@ -6,15 +6,7 @@ import { connect } from 'react-redux';
 import * as allActions from '../actions/index';
 import Chardata from './Chardata'
 
-interface Props {
-
-}
-
-interface State {
-
-}
-
-class App extends React.Component<Props, State> {
+class App extends Component {
     constructor(props){
         super(props)
         props.actions.getJson()
@@ -57,14 +49,14 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
         marginTop: 20,
-    } as ViewStyle,
+    },
     picker: {
         height: 50,
         flex:1,
-    } as ViewStyle,
+    },
     pickerContainer:{
         flexDirection:'row',
-    } as ViewStyle,
+    },
 });
 
 export default connect((state) => ({
