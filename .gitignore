@@ -3,3 +3,4 @@ node_modules/
 npm-debug.*
 build
 .idea
+src/app/constants/baseAuth.js

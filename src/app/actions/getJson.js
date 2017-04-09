@@ -1,3 +1,4 @@
+import base64 from 'base-64';
 export default function getJson(){
     return (dispatch) => {
         fetch('http://192.168.0.102:3000/all')
