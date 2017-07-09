@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ViewStyle, Picker, StatusBar} from 'react-native';
-import {bindActionCreators} from 'redux';
+import { StyleSheet, Text, View, ViewStyle, Picker } from 'react-native';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import * as allActions from '../actions/index';
