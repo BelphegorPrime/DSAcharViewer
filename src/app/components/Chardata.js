@@ -61,19 +61,47 @@ class App extends Component {
                                         }
                                     })
                                 }
-                                console.log(value)
                                 return <Text key={Math.random()}>{specialCraft["$"].name+value}</Text>
                             })}
                         </ScrollView>
                     </View>
                     <View>
                         <ScrollView>
-                            {/**Char Vor- und Nachteile*/}
+                            {/**Char Talente*/}
                             {this.props.char["talentliste"][0]["talent"].map(ability=>{
                                 return <Text key={Math.random()}>
                                     {ability["$"].name+": "+ability["$"]["value"]+ability["$"]["probe"]}
                                 </Text>
                             })}
+                        </ScrollView>
+                    </View>
+                    <View>
+                        <ScrollView>
+                            {/**Char Zauber*/}
+                            {/**
+                             "anmerkungen":"StrP*3, Härte*3| danach StrP/2 Härte/2",
+                             "hauszauber":"true",
+                             "k":"C",
+                             "kosten":"5AsP+2AsP/S",
+                             "lernmethode":"Gegenseitiges Lehren",
+                             "name":"Adamantium Erzstruktur",
+                             "probe":" (KL/FF/KO)",
+                             "reichweite":"Berührung",
+                             "repraesentation":"Magier",
+                             "value":"6",
+                             "variante":"",
+                             "wirkungsdauer":"ZfP* SR",
+                             "zauberdauer":"40 Aktionen",
+                             "zauberkommentar":""}
+                            */}
+                            {this.props.char["zauberliste"][0]!=="" ? this.props.char["zauberliste"][0]["zauber"].map(spell=>{
+                                return <Text key={Math.random()} numberOfLines={5}>
+                                    {spell["$"].name+": "+spell["$"]["value"]+" ZfP"+spell["$"]["probe"]+"\n"+
+                                    "RW:"+spell["$"].reichweite+" WD:"+spell["$"].wirkungsdauer+" ZD:"+spell["$"].zauberdauer+"\n"+
+                                    "Kosten: "+spell["$"].kosten+"\n"+
+                                    spell["$"].anmerkungen+spell["$"].zauberkommentar+"\n\n"}
+                                </Text>
+                            }):null}
                         </ScrollView>
                     </View>
                 </ScrollView>
